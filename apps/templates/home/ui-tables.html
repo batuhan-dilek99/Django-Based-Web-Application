@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card ">
+      <div class="card-header">
+        <h4 class="card-title"> Tickets</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table tablesorter " id="">
+            <thead class=" text-primary">
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Email
+                </th>
+                <th>
+                  Subject
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Process
+                </th>
+              </tr>
+            </thead>
+            {% for t in TDT %}
+            <tbody>
+              <tr>
+                <td>
+                  {{t.firstname}} {{t.lastname}}
+                </td>
+                <td>
+                  {{t.email}}
+                </td>
+                <td>
+                  {{t.subject}}
+                </td>
+                <td>
+                  {{t.status_flag}}
+                </td>
+                <td>
+                  {{t.operation_flag}}
+                </td>
+                <td class="text-center">
+                  <a href = "{% url 'getSingleTicket' t.id %}"><button class="btn btn-fill btn-primary">Inspect</button></a>
+                </td>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
