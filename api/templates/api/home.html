@@ -1,0 +1,7 @@
+{% for t in tickets %}
+    <ul>
+        <li>
+            {{t.firstname}} {{t.lastname}} {{t.subject}} {{t.scenario}} {{t.operation_flag}} {{t.status_flag}}
+        </li>
+    </ul>
+{% endfor %}
