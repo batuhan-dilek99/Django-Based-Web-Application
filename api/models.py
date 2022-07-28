@@ -7,16 +7,17 @@ class Ticket(models.Model):
     subject = models.CharField(max_length = 255)
     scenario = models.CharField(max_length = 2000)
     date = models.DateTimeField()
+    email = models.EmailField(null = True)
 
 
 class Operations(enum.Enum):
-    Untouched : 0
-    Cleaned : 1
-    Rejected : 2
+    Untouched = 0
+    Cleaned = 1
+    Rejected = 2
 
 class Status(enum.Enum):
-    Processed : 1
-    Unprocessed : 0
+    Processed = 1
+    Unprocessed = 0
 
 class TicketDataTable(models.Model):
     firstname = models.CharField(max_length = 255)
@@ -26,4 +27,5 @@ class TicketDataTable(models.Model):
     date = models.DateTimeField()
     operation_flag = enum.EnumField(Operations)
     status_flag = enum.EnumField(Status)
+    email = models.EmailField(null = True)
 # Create your models here.
