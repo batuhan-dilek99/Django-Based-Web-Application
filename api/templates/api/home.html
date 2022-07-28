@@ -1,7 +1,7 @@
 {% for t in tickets %}
     <ul>
         <li>
-            {{t.firstname}} {{t.lastname}} {{t.subject}} {{t.scenario}} {{t.operation_flag}} {{t.status_flag}}
+            {{t.firstname}} {{t.lastname}} {{t.subject}} {{t.scenario}} {{t.operation_flag}} {{t.status_flag}} <a href = "{% url 'getTicket' t.id %}">Inspect</a>
         </li>
     </ul>
 {% endfor %}

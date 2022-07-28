@@ -8,12 +8,9 @@ from rest_framework.decorators import api_view
 from django.http import HttpResponse
 
 
-def homePage(request):
-    tickets = TicketDataTable.objects.all()
-    context = {
-        'tickets' : tickets
-    }
-    return render(request, 'api/home.html', context)
+
+
+#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-POST METHODS-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*
 
 
 # ------handling json input from client--------
@@ -27,14 +24,14 @@ class Payload(object):
 @api_view(['POST'])
 @csrf_exempt
 def pend(request):
-    if request.body != None:
+    if (request.body != None):
         p = Payload(request.body)
 
     ticket = Ticket(firstname=p.firstname, lastname=p.lastname, email=p.email, subject=p.subjects, scenario=p.scenario,date=p.date)
     ticket.save()
 
-    tdt = TicketDataTable(firstname = ticket.firstname, lastname = ticket.lastname, email = ticket.email,
-        subject = ticket.subject, scenario = ticket.scenario,
+    tdt = TicketDataTable(firstname = ticket.firstname, lastname = ticket.lastname, email = ticket.email, 
+        subject = ticket.subject, scenario = ticket.scenario, 
         date = ticket.date, operation_flag = Operations.get(0), status_flag = Status.get(0))
     tdt.save()
     print()
@@ -45,3 +42,34 @@ def pend(request):
     # Refresh
     print()
     return Response()
+
+#*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+
+
+#-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-GET METHODS-*-*-*-*-*-*-*-*-*-*-*-*--*-*-*-*-*-*
+
+#Templates----------------------------------
+def homePage(request):
+    tickets = TicketDataTable.objects.all()
+    context = {
+        'tickets' : tickets
+    }
+    return render(request, 'api/home.html', context)
+
+
+def getTicket(request, pk):
+
+    ticket = TicketDataTable.objects.get(id = pk)
+
+    context = {
+        'ticket' : ticket
+    }
+   
+    return render(request, "api/individual.html", context)
+
+#-------------------------------------------
+
+
+
+
+#*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
