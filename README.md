@@ -33,4 +33,5 @@ python manage.py createsuperuser
 After creating the superuser, simply go to http://127.0.0.1:8000/.
 Log into system and, you are in!.
 
-
+# Contributors
+[![](https://avatars.githubusercontent.com/u/80598580?v=4)](https://github.com/batuhan-dilek99)
