@@ -1,19 +1,19 @@
 # Django Fullstack Internship Project
 
 ## Overall
-### What is it?
+#### What is it?
 This program simulates a ticket system (to be continued)
-### Technologies
+#### Technologies
 We have used python and django-framework while building this program.
 
 
 ## Prerequisites
 To be able to run the program, you need to install 2 modules.
-### 1. python-decouple
+#### 1. python-decouple
 ```
 pip install python-decouple
 ```
-### 2. Selenium
+#### 2. Selenium
 ```
 pip install selenium
 ```
