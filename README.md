@@ -24,7 +24,7 @@ python manage.py runserver
 ```
 Program will run on http://127.0.0.1:8000/
 
-##Creating a superuser
+## Creating a superuser
 Super user means admin. Admins can assign roles to the normal users and create new normal users. Admins can see a dashboard about the overall performance of the users and the system.
 To create a superuser, execute:
 ```
