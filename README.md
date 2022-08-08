@@ -35,6 +35,6 @@ Log into system and, you are in!.
 
 # Contributors
 Batuhan Dilek <br/>
-[![](https://avatars.githubusercontent.com/u/80598580?s=60&v=4?)](https://github.com/batuhan-dilek99)
+[![](https://avatars.githubusercontent.com/u/80598580?s=60&v=4?)](https://github.com/batuhan-dilek99)<br />
 Koray Çelik <br />
 [![](https://avatars.githubusercontent.com/u/97339180?s=60&v=4)](https://github.com/kryC1)
